@@ -9,7 +9,7 @@
 
 ![Visão geral do dashboard](images/pagina-1-visao-geral-roi.png)
 
-> 🏆 **Reconhecimento:** projeto desenvolvido em grupo durante um Data Class (workshop de Marketing Digital) promovido pela **Liga de Data Science** da **Unicamp**. Nosso grupo foi escolhido para **apresentar o dashboard e as análises diretamente ao time da Physa**, que nos deu feedbacks muito positivos.
+> 🏆 **Reconhecimento:** projeto desenvolvido em grupo durante um Data Class de Power BI promovido pela **Liga de Data Science** da **Unicamp**. Nosso grupo foi escolhido para **apresentar o dashboard e as análises diretamente ao time da Physa**, que nos deu feedbacks muito positivos.
 
 ---
 
@@ -25,7 +25,7 @@ Este foi um projeto em grupo: o dashboard e a apresentação foram construídos 
 
 ## 🎯 Contexto e objetivo
 
-**Desafio proposto:** Pegar uma base de dados no Kaggle e aplicar tudo que foi ensinado ao longo das 4 aulas (Modelagem relacionalm, DAX e contrução de Dashboard)
+**Desafio proposto:** Escolher uma base de dados no Kaggle e aplicar tudo o que foi ensinado ao longo das 4 aulas: modelagem relacional, DAX e construção de dashboard
 
 A base reúne campanhas de marketing de três marcas de beleza (Nykaa, Purplle e Tira) ao longo de 12 meses. O objetivo foi transformar esse volume de dados em respostas objetivas para quem decide onde investir:
 
@@ -239,9 +239,9 @@ O modelo inclui um script de conferência em DAX que compara as medidas com valo
 
 ## ▶️ Como abrir o projeto
 
-1. Baixe `dashboard/dashboard-roi-campanhas.pbix`.
-2. Abra no **Power BI Desktop** (o arquivo já carrega os dados dentro dele).
-3. Se o Power BI pedir para atualizar a fonte, aponte para os CSVs.
+   1. Baixe `workshop_marketing_digital_completo.pbix`.
+   2. Abra no Power BI Desktop (o arquivo já carrega os dados dentro dele).
+   3. Se o Power BI pedir para atualizar a fonte, aponte para os CSVs da pasta `baseDeDados/`.
 
 ---
 
