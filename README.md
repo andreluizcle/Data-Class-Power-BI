@@ -17,7 +17,7 @@
 
 Este foi um projeto em grupo: o dashboard e a apresentação foram construídos em equipe. Minha **principal contribuição foi a camada analítica**:
 
-- **Criei as métricas do projeto.** Escrevi o *Dicionário de Métricas de Campanha*, que define fórmulas, o que cada indicador mostra e as regras de agregação (por exemplo, calcular ROI e ROAS de forma agregada, e não como média simples da coluna).
+- **Criei as métricas do projeto.** Defini os indicadores, as fórmulas, o que cada um mostra e as regras de agregação (por exemplo, calcular ROI e ROAS de forma agregada, e não como média simples da coluna).
 - **Escrevi as fórmulas DAX.** São **28 medidas** e **4 colunas calculadas**, organizadas em pastas por tema, além da tabela auxiliar de canais feita em Power Query.
 - **Conduzi a análise geral.** Cruzei ROI, funil, audiência, canal, tipo de campanha e engajamento, e transformei os números em leituras para o negócio.
 
@@ -25,7 +25,7 @@ Este foi um projeto em grupo: o dashboard e a apresentação foram construídos 
 
 ## 🎯 Contexto e objetivo
 
-**Desafio proposto:** Escolher uma base de dados no Kaggle e aplicar tudo o que foi ensinado ao longo das 4 aulas: modelagem relacional, DAX e construção de dashboard
+**Desafio proposto:** Escolher uma base de dados no Kaggle e aplicar tudo o que foi ensinado ao longo das 4 aulas: modelagem relacional, DAX e construção de dashboard.
 
 A base reúne campanhas de marketing de três marcas de beleza (Nykaa, Purplle e Tira) ao longo de 12 meses. O objetivo foi transformar esse volume de dados em respostas objetivas para quem decide onde investir:
 
@@ -102,7 +102,7 @@ Relação entre investimento, receita e conversões (tamanho da bolha) por canal
 
 ## 🗂️ Fonte de dados
 
-Três arquivos CSV, um por marca, com a mesma estrutura:
+Base pública do Kaggle: [Multi-Brand Marketing Campaign Performance Dataset](https://www.kaggle.com/datasets/sshriya08/multi-brand-marketing-campaign-performance-dataset), publicada por **sshriya08** sob a licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). São três arquivos CSV (pasta `baseDeDados/`), um por marca, com a mesma estrutura:
 
 | Arquivo | Marca | Campanhas |
 |---------|-------|----------:|
@@ -115,6 +115,7 @@ Três arquivos CSV, um por marca, com a mesma estrutura:
 - **Colunas (16):** `Campaign_ID`, `Campaign_Type`, `Target_Audience`, `Duration`, `Channel_Used`, `Impressions`, `Clicks`, `Leads`, `Conversions`, `Revenue`, `Acquisition_Cost`, `ROI`, `Language`, `Engagement_Score`, `Customer_Segment`, `Date`.
 - **Dimensões:** 5 tipos de campanha (Email, Influencer, Paid Ads, SEO, Social Media), 5 públicos (College Students, Premium Shoppers, Tier 2 City Customers, Working Women, Youth) e 6 canais (Email, Facebook, Google, Instagram, WhatsApp, YouTube).
 - **Observação importante:** o **investimento (Spend) não existe como coluna**. Ele é calculado como `Acquisition_Cost × Conversions`.
+- **Natureza dos dados:** na página do Kaggle, a base é classificada como *sintética*. Por isso, os resultados deste projeto são um exercício analítico e não representam o desempenho real de Nykaa, Purplle ou Tira.
 - Os valores monetários seguem a unidade original da base (a moeda não é informada).
 
 ---
@@ -160,7 +161,7 @@ in
 
 ## 📐 Métricas e DAX
 
-As métricas foram definidas no [Dicionário de Métricas](docs/metricas_campanhas.docx) e implementadas em DAX conforme o [Guia de DAX](docs/guia_dax_metricas_campanhas.docx). Resumo por tema:
+As métricas foram definidas por mim e implementadas em DAX no modelo. Resumo por tema:
 
 | Tema | Métricas |
 |------|----------|
@@ -212,7 +213,7 @@ IF ( campaign_analytics[Qtd Canais] = 1, "Mono-canal", "Multicanal" )
 - **ROI e ROAS são sempre agregados** (soma de receita ÷ soma de investimento), e não a média da coluna `ROI`. A média simples dá o mesmo peso a uma campanha pequena e a uma muito maior, e distorce a comparação.
 - **CAC ponderado × média simples.** A média simples de `Acquisition_Cost` dá cerca de 2,2× o CAC ponderado (376,09 contra 169,83). Por isso o dashboard usa a versão ponderada.
 - **Visuais por canal sem total.** Como uma campanha multicanal conta em cada canal, o total somaria o dobro de receita e investimento.
-- **Retenção não é calculável**, porque a base não tem ID de cliente. O Engagement Score é o proxy mais próximo, e isso está declarado no dicionário.
+- **Retenção não é calculável**, porque a base não tem ID de cliente. O Engagement Score é o proxy mais próximo, mas não substitui uma métrica de retenção de fato.
 
 ### Validação
 
@@ -239,9 +240,9 @@ O modelo inclui um script de conferência em DAX que compara as medidas com valo
 
 ## ▶️ Como abrir o projeto
 
-   1. Baixe `workshop_marketing_digital_completo.pbix`.
-   2. Abra no Power BI Desktop (o arquivo já carrega os dados dentro dele).
-   3. Se o Power BI pedir para atualizar a fonte, aponte para os CSVs da pasta `baseDeDados/`.
+1. Baixe `workshop_marketing_digital_completo.pbix`.
+2. Abra no **Power BI Desktop** (o arquivo já carrega os dados dentro dele).
+3. Se o Power BI pedir para atualizar a fonte, aponte para os CSVs da pasta `baseDeDados/`.
 
 ---
 
@@ -254,3 +255,5 @@ André Luiz Clemente de Oliveira <br>
 Felipe Kenji Ouba Fukuzono <br>
 Sofia Helena Sato <br>
 Guilherme Gali Rocha
+
+**Base de dados:** [Multi-Brand Marketing Campaign Performance Dataset](https://www.kaggle.com/datasets/sshriya08/multi-brand-marketing-campaign-performance-dataset), de sshriya08, disponível no Kaggle sob a licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Os dados foram utilizados e, quando necessário, adaptados para as análises deste projeto.
