@@ -249,8 +249,8 @@ O modelo inclui um script de conferência em DAX que compara as medidas com valo
 
 Projeto desenvolvido em grupo no **Data Class de Power BI** da **Liga de Data Science** (Unicamp), com apresentação para o time da **Physa**.
 
-**Equipe:** 
-André Luiz Clemente de Oliveira
-Felipe Kenji Ouba Fukuzono
-Sofia Helena Sato
+**Equipe:** <br>
+André Luiz Clemente de Oliveira <br>
+Felipe Kenji Ouba Fukuzono <br>
+Sofia Helena Sato <br>
 Guilherme Gali Rocha
